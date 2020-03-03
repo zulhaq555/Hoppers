@@ -1,6 +1,6 @@
-import javax.swing.*;
-
 /**This is the game interface (board) */
+
+import javax.swing.*;
 
 public class Board
 {

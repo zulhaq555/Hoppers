@@ -4,6 +4,6 @@ public class Hoppers
 {
    public static void main(String[] Args)
     {
-        Board board = new Board();
+        Board boards = new Board();
     }
 }

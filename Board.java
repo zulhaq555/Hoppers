@@ -1,6 +1,7 @@
 /**This is the game interface (board) */
 
 import javax.swing.*;
+import  java.awt.*;
 
 public class Board
 {
@@ -8,6 +9,8 @@ public class Board
     {
         JFrame a = new JFrame();
         JPanel panel = new JPanel();
+        GridLayout g = new GridLayout(5,5);
+        panel.setLayout(g);
         a.setContentPane(panel);
         a.setVisible(true);
         a.setTitle("Hoppers!");

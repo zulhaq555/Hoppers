@@ -10,6 +10,7 @@ public class Board
     private JButton[] b = new JButton[25];
     private GridLayout layout = new GridLayout(5, 5);
     private ImageIcon water = new ImageIcon("images/Water.png");
+    private ImageIcon lilypad = new ImageIcon("images/Water.png");
 
     public Board()
     {
@@ -17,9 +18,12 @@ public class Board
 
         for (int i = 0; i < 25; i++){
             
+            /*if i is even, button is lilipad, else button is water*/ 
+
             b[i] = new JButton(water);
             b[i].setIcon(water);
             b[i].setSize(40, 40);
+            
             panel.add(b[i]);
             
         }

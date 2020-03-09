@@ -20,6 +20,8 @@ public class Board
 
         for (int i = 0; i < 25; i++){
             
+            Square(i);
+
             if (i % 2 == 0){
 
                 b[i] = new JButton(lilypad);

@@ -7,7 +7,6 @@ public class Board
     
     private JFrame gameBoard = new JFrame();
     private JPanel panel = new JPanel();
-    private Square[] buttons = new Square[25];
     private JButton[] b = new JButton[25];
     private GridLayout layout = new GridLayout(5, 5);
     private ImageIcon water = new ImageIcon("images/Water.png");
@@ -20,8 +19,6 @@ public class Board
 
         for (int i = 0; i < 25; i++){
             
-            Square(i);
-
             if (i % 2 == 0){
 
                 b[i] = new JButton(lilypad);
@@ -43,10 +40,5 @@ public class Board
         gameBoard.setSize(750, 750);
         gameBoard.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         gameBoard.setVisible(true);
-    }
-
-    public JPanel getPanel()
-    {
-        return panel;
     }
 }

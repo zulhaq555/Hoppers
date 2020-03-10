@@ -13,7 +13,6 @@ public class Square
     public Square(int i)
     {
         
-        getPanel();
 
         if (i % 2 == 0){
 
@@ -27,6 +26,8 @@ public class Square
 
             
         }  
+
+        
     }
 
     

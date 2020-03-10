@@ -11,6 +11,9 @@ public class Board
     private GridLayout layout = new GridLayout(5, 5);
     private ImageIcon water = new ImageIcon("images/Water.png");
     private ImageIcon lilypad = new ImageIcon("images/LilyPad.png");
+    private ImageIcon rFrog = new ImageIcon("images/RedFrog.png");
+    private ImageIcon gFrog = new ImageIcon("images/GreenFrog.png");
+
 
     public Board()
     {
@@ -35,6 +38,10 @@ public class Board
             
         }
 
+        b[0].setIcon(rFrog);
+        b[6].setIcon(gFrog);
+
+        
         gameBoard.setContentPane(panel);
         gameBoard.setTitle("HOPPERS!");
         gameBoard.setSize(750, 750);

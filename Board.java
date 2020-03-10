@@ -7,12 +7,13 @@ public class Board
     
     private JFrame gameBoard = new JFrame();
     private JPanel panel = new JPanel();
-    private JButton[] b = new JButton[25];
+    private Square[] w = new Square[25];
     private GridLayout layout = new GridLayout(5, 5);
-    private ImageIcon water = new ImageIcon("images/Water.png");
-    private ImageIcon lilypad = new ImageIcon("images/LilyPad.png");
     private ImageIcon rFrog = new ImageIcon("images/RedFrog.png");
+    private ImageIcon rFrog2 = new ImageIcon("images/RedFrog2.png");
     private ImageIcon gFrog = new ImageIcon("images/GreenFrog.png");
+    private ImageIcon gFrog2 = new ImageIcon("images/GreenFrog2.png");
+
 
 
     public Board()
@@ -21,25 +22,14 @@ public class Board
         panel.setLayout(layout);
 
         for (int i = 0; i < 25; i++){
-            
-            if (i % 2 == 0){
 
-                b[i] = new JButton(lilypad);
-                b[i].setIcon(lilypad);
-
-            }else{
-
-                b[i] = new JButton(water);
-                b[i].setIcon(water);
-                
-            }
-
-            panel.add(b[i]);
+            w[i] = new Square(i, i, "");
+            panel.add(w[i].getButton());
             
         }
 
-        b[0].setIcon(rFrog);
-        b[6].setIcon(gFrog);
+        w[0].getButton().setIcon(rFrog);
+        w[6].getButton().setIcon(gFrog);
 
         
         gameBoard.setContentPane(panel);

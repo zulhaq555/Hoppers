@@ -8,13 +8,12 @@ public class Board implements java.awt.event.ActionListener
     
     JFrame gameBoard = new JFrame();
     JPanel panel = new JPanel();
-    Square[] w = new Square[25];
     GridLayout layout = new GridLayout(5, 5);
-    ImageIcon rFrog = new ImageIcon("images/RedFrog.png");
-    ImageIcon rFrog2 = new ImageIcon("images/RedFrog2.png");
-    ImageIcon gFrog = new ImageIcon("images/GreenFrog.png");
-    ImageIcon gFrog2 = new ImageIcon("images/GreenFrog2.png");
 
+    Square[] button = new Square[25];
+    String piece;
+    int rlocation = 23;
+    int glocation[] = {6, 8, 12, 21};
 
     public Board()
     {
@@ -23,20 +22,19 @@ public class Board implements java.awt.event.ActionListener
 
         for (int i = 0; i < 25; i++){
 
-            w[i] = new Square(i, i, "");
-            panel.add(w[i].getButton());
-            w[i].getButton().addActionListener(this);
+            for (int c = 0; c < 3; c++){
+                if (glocation[c] == i){
+                    button[i] = new Square(i, "Gfrog");
+                }
+            }
+
+            button[i] = new Square(i, "");
+            panel.add(button[i].getButton());
+            button[i].getButton().addActionListener(this);
 
         }
 
-        w[6].getButton().setIcon(gFrog);
-        w[8].getButton().setIcon(gFrog);
-        w[12].getButton().setIcon(gFrog);
-        w[20].getButton().setIcon(gFrog);
-        w[22].getButton().setIcon(rFrog);
-        w[24].getButton().setIcon(gFrog);
-
-        
+                
 
         gameBoard.setContentPane(panel);
         gameBoard.setTitle("HOPPERS!");
@@ -47,7 +45,7 @@ public class Board implements java.awt.event.ActionListener
 
     public void actionPerformed(ActionEvent e)
     {
-        
+
     }
 
 }

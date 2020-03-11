@@ -6,26 +6,39 @@ import java.awt.*;
 public class Square 
 {
     
-    JButton w = new JButton();
-    private ImageIcon water = new ImageIcon("images/Water.png");
-    private ImageIcon lilypad = new ImageIcon("images/LilyPad.png");
-    private ImageIcon rFrog = new ImageIcon("images/RedFrog.png");
-    private ImageIcon rFrog2 = new ImageIcon("images/RedFrog2.png");
-    private ImageIcon gFrog = new ImageIcon("images/GreenFrog.png");
-    private ImageIcon gFrog2 = new ImageIcon("images/GreenFrog2.png");
+    JButton button = new JButton();
+    int location;
+    String piece;
+    ImageIcon water = new ImageIcon("images/Water.png");
+    ImageIcon lilypad = new ImageIcon("images/LilyPad.png");
+    ImageIcon rFrog = new ImageIcon("images/RedFrog.png");
+    ImageIcon rFrog2 = new ImageIcon("images/RedFrog2.png");
+    ImageIcon gFrog = new ImageIcon("images/GreenFrog.png");
+    ImageIcon gFrog2 = new ImageIcon("images/GreenFrog2.png");
 
-    public Square(int i, int loc, String type)
+    public Square(int i, String type)
     {
         
-        if (i % 2 == 0){
+        location = i;
+        piece = type;
 
-            w.setIcon(lilypad);
+        if (piece == "Gfrog"){
+
+            button.setIcon(gFrog);
+
+        }else if (piece == "Rfrog"){
+
+            button.setIcon(rFrog);
 
         }else{
 
-            w.setIcon(water);
-            
-        }   
+            if (i % 2 == 0){
+                button.setIcon(lilypad);
+            }else{                     
+                button.setIcon(water);
+            }    
+        }
+        
 
     }
 
@@ -34,8 +47,16 @@ public class Square
         
     }
 
+    public String getPieces(){
+        return piece;
+    }
+
+    public int getLocation(){
+        return location;
+    }
+
     public JButton getButton(){
-        return w;
+        return button;
     }
     
 }

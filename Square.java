@@ -7,6 +7,7 @@ public class Square
 {
     
 <<<<<<< HEAD
+<<<<<<< HEAD
     JButton button = new JButton();
     int location;
     String piece;
@@ -19,6 +20,8 @@ public class Square
 
     public Square(int i, String type)
 =======
+=======
+>>>>>>> parent of 7c45e39... Action Listener
     int c = 0;
     JButton w = new JButton();
     private ImageIcon water = new ImageIcon("images/Water.png");
@@ -46,6 +49,7 @@ public class Square
         }else{
 
 <<<<<<< HEAD
+<<<<<<< HEAD
             if (i % 2 == 0){
                 button.setIcon(lilypad);
             }else{                     
@@ -72,6 +76,11 @@ public class Square
 
     public int getLocation(){
         return location;
+=======
+            w.setIcon(water);
+            
+        }   
+>>>>>>> parent of 7c45e39... Action Listener
     }
 
     public JButton getButton(){

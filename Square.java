@@ -6,6 +6,7 @@ import java.awt.*;
 public class Square 
 {
     
+    int c = 0;
     JButton w = new JButton();
     private ImageIcon water = new ImageIcon("images/Water.png");
     private ImageIcon lilypad = new ImageIcon("images/LilyPad.png");
@@ -26,12 +27,6 @@ public class Square
             w.setIcon(water);
             
         }   
-
-    }
-
-    public void moveTo()
-    {
-        
     }
 
     public JButton getButton(){

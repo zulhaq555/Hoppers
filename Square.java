@@ -6,7 +6,6 @@ import java.awt.*;
 public class Square 
 {
     
-<<<<<<< HEAD
     JButton button = new JButton();
     int location;
     String piece;
@@ -18,18 +17,6 @@ public class Square
     ImageIcon gFrog2 = new ImageIcon("images/GreenFrog2.png");
 
     public Square(int i, String type)
-=======
-    int c = 0;
-    JButton w = new JButton();
-    private ImageIcon water = new ImageIcon("images/Water.png");
-    private ImageIcon lilypad = new ImageIcon("images/LilyPad.png");
-    private ImageIcon rFrog = new ImageIcon("images/RedFrog.png");
-    private ImageIcon rFrog2 = new ImageIcon("images/RedFrog2.png");
-    private ImageIcon gFrog = new ImageIcon("images/GreenFrog.png");
-    private ImageIcon gFrog2 = new ImageIcon("images/GreenFrog2.png");
-
-    public Square(int i, int loc, String type)
->>>>>>> parent of 7c45e39... Action Listener
     {
         
         location = i;
@@ -45,7 +32,6 @@ public class Square
 
         }else{
 
-<<<<<<< HEAD
             if (i % 2 == 0){
                 button.setIcon(lilypad);
             }else{                     
@@ -59,11 +45,6 @@ public class Square
     public void moveTo()
     {
         
-=======
-            w.setIcon(water);
-            
-        }   
->>>>>>> parent of 7c45e39... Action Listener
     }
 
     public String getPieces(){

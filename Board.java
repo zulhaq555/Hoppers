@@ -10,12 +10,9 @@ public class Board implements ActionListener
     private JPanel panel = new JPanel();
     private Square[] button = new Square[25];
     private GridLayout layout = new GridLayout(5, 5);
-    private ImageIcon rFrog = new ImageIcon("images/RedFrog.png");
-    private ImageIcon rFrog2 = new ImageIcon("images/RedFrog2.png");
-    private ImageIcon gFrog = new ImageIcon("images/GreenFrog.png");
-    private ImageIcon gFrog2 = new ImageIcon("images/GreenFrog2.png");
 
-    int location;
+    private int location;
+    private int location2;
 
     public Board()
     {
@@ -24,19 +21,20 @@ public class Board implements ActionListener
 
         for (int i = 0; i < 25; i++){
 
-            /**you must to the adding peices function in here */
-
-            button[i] = new Square(i, "");
-            panel.add(button[i].getButton());
+            if (i == 6 || i == 8 || i == 12 || i == 20 || i == 24){
+                button[i] = new Square(i, "GFrog");
+            }else if (i == 22){
+                button[i] = new Square(i, "RFrog");
+            }else{
+                button[i] = new Square(i, "");
+            }
             
+            panel.add(button[i].getButton());
+            button[i].getButton().addActionListener(this);
+
         }
 
-        button[6].getButton().setIcon(gFrog);
-        button[8].getButton().setIcon(gFrog);
-        button[12].getButton().setIcon(gFrog);
-        button[20].getButton().setIcon(gFrog);
-        button[22].getButton().setIcon(rFrog);
-        button[24].getButton().setIcon(gFrog);
+
 
         
         gameBoard.setContentPane(panel);
@@ -48,6 +46,6 @@ public class Board implements ActionListener
 
     public void actionPerformed(ActionEvent e)
     {
-        
+        /**get location, get piece, if button[location].piece = "GFrog" then button[location].setIcon[Greenfrog] */
     }
 }

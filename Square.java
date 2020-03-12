@@ -15,8 +15,8 @@ public class Square
     private ImageIcon gFrog2 = new ImageIcon("images/GreenFrog2.png");
 
 
-    int location;
-    String piece;
+    private int location;
+    private String piece;
 
     public Square(int i, String type)
     {
@@ -38,10 +38,25 @@ public class Square
                 button.setIcon(lilypad);
             }else{
                 button.setIcon(water);      
-            }       
+            }   
+
+        }
+    }
+
+    public void moveTo(int location2){
+
+        if (piece == "GFrog"){
+
+            button.setIcon(gFrog2);
+
+        }else if (piece == "RFrog"){
+
+            button.setIcon(rFrog2);
+
+        }else{
+
         }
 
-        
     }
 
     public JButton getButton(){

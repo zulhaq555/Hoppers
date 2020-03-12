@@ -34,14 +34,12 @@ public class Board implements ActionListener
 
         }
 
-
-
-        
         gameBoard.setContentPane(panel);
         gameBoard.setTitle("HOPPERS!");
         gameBoard.setSize(750, 750);
         gameBoard.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         gameBoard.setVisible(true);
+        
     }
 
     public void actionPerformed(ActionEvent e)

@@ -36,14 +36,17 @@ public class Square
 
             if (i % 2 == 0){
                 button.setIcon(lilypad);
+                piece = "Lilypad";
             }else{
                 button.setIcon(water);      
+                piece = "Water";
             }   
 
         }
     }
 
-    public void moveTo(int location2){
+    public void moveTo(int flocation, int location2){
+        
 
         if (piece == "GFrog"){
 

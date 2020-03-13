@@ -13,6 +13,7 @@ public class Board implements ActionListener
 
     private int location;
     private int location2;
+    private String piece;
 
     public Board()
     {
@@ -44,6 +45,25 @@ public class Board implements ActionListener
 
     public void actionPerformed(ActionEvent e)
     {
-        /**get location, get piece, if button[location].piece = "GFrog" then button[location].setIcon[Greenfrog] */
+
+        for (int c = 0; c < 25; c++){
+            location = button[c].getLocation();
+            piece = button[c].getPiece();
+
+            if(e.getSource() == button[location].getButton() && (button[location].getPiece() == "GFrog" || button[location].getPiece() == "RFrog")){
+
+                button[location].moveTo(location, location2);
+                System.out.println("kl");
+
+            }else if (e.getSource() == button[location].getButton() && (button[location].getPiece() == "Lilypad" || button[location].getPiece() == "Water")){
+
+                location2 = location;
+                button[location].moveTo(location, location2);
+
+            }
+        }
+
+        
+
     }
 }

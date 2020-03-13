@@ -8,12 +8,19 @@ public class Board implements ActionListener
     
     private JFrame gameBoard = new JFrame();
     private JPanel panel = new JPanel();
+    private Square selectButton;
+    private Square selectButton2;
     private Square[] button = new Square[25];
     private GridLayout layout = new GridLayout(5, 5);
+    private ImageIcon rFrog2 = new ImageIcon("images/RedFrog2.png");
+    private ImageIcon gFrog2 = new ImageIcon("images/GreenFrog2.png");
+
+
 
     private int location;
     private int location2;
     private String piece;
+    private int midpoint;
 
     public Board()
     {
@@ -47,20 +54,40 @@ public class Board implements ActionListener
     {
 
         for (int c = 0; c < 25; c++){
-            location = button[c].getLocation();
             piece = button[c].getPiece();
 
-            if(e.getSource() == button[location].getButton() && (button[location].getPiece() == "GFrog" || button[location].getPiece() == "RFrog")){
+            if(e.getSource() == button[c].getButton() && "GFrog".equals(button[c].getPiece())){
 
-                button[location].moveTo(location, location2);
+                location = c;
+                button[c].getButton().setIcon(gFrog2);
+                selectButton = button[c];
                 System.out.println("kl");
 
-            }else if (e.getSource() == button[location].getButton() && (button[location].getPiece() == "Lilypad" || button[location].getPiece() == "Water")){
+            }else if (e.getSource() == button[c].getButton() && "RFrog".equals(button[c].getPiece())){
 
-                location2 = location;
-                button[location].moveTo(location, location2);
+                location = c;
+                button[c].getButton().setIcon(rFrog2);
+                selectButton = button[c];
+
+            }else if (e.getSource() == button[c].getButton() && "Lilypad".equals(button[c].getPiece())){
+
+                location2 = c;
+                selectButton2 = button[c];
+                midpoint = ((location + location2)/2);
+
+                if ("GFrog".equals(button[midpoint].getPiece()) || "RFrog".equals(button[midpoint].getPiece())){
+
+                    button[midpoint].noFrog();
+                    selectButton.moveTo(selectButton2);
+
+                }else{
+                    System.out.println("NOPE");
+                }
 
             }
+
+        
+
         }
 
         

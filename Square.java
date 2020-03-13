@@ -10,13 +10,12 @@ public class Square
     private ImageIcon water = new ImageIcon("images/Water.png");
     private ImageIcon lilypad = new ImageIcon("images/LilyPad.png");
     private ImageIcon rFrog = new ImageIcon("images/RedFrog.png");
-    private ImageIcon rFrog2 = new ImageIcon("images/RedFrog2.png");
     private ImageIcon gFrog = new ImageIcon("images/GreenFrog.png");
-    private ImageIcon gFrog2 = new ImageIcon("images/GreenFrog2.png");
 
 
     private int location;
     private String piece;
+    private String piece2;
 
     public Square(int i, String type)
     {
@@ -45,20 +44,30 @@ public class Square
         }
     }
 
-    public void moveTo(int flocation, int location2){
-        
+    public void moveTo(Square sbutton){
 
-        if (piece == "GFrog"){
+        if ("GFrog".equals(piece)){
 
-            button.setIcon(gFrog2);
+            button.setIcon(lilypad);
+            sbutton.getButton().setIcon(gFrog);
+            piece = "Lilypad";
+            sbutton.piece = "GFrog";
 
-        }else if (piece == "RFrog"){
+        }else if ("RFrog".equals(piece)){
 
-            button.setIcon(rFrog2);
-
-        }else{
+            button.setIcon(lilypad);
+            sbutton.getButton().setIcon(rFrog);
+            piece = "Lilypad";
+            sbutton.piece = "RFrog";
 
         }
+
+    }
+
+    public void noFrog(){
+
+        button.setIcon(lilypad);
+        piece = "Lilypad";
 
     }
 

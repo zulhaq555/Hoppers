@@ -1,5 +1,6 @@
 /**This is the game interface (board) */
 import javax.swing.*;
+import javax.swing.JOptionPane;
 import java.awt.*;
 import java.awt.event.*;
 
@@ -15,8 +16,6 @@ public class Board implements ActionListener
     private ImageIcon rFrog2 = new ImageIcon("images/RedFrog2.png");
     private ImageIcon gFrog2 = new ImageIcon("images/GreenFrog2.png");
 
-
-
     private int location;
     private int location2;
     private String piece;
@@ -29,7 +28,7 @@ public class Board implements ActionListener
 
         for (int i = 0; i < 25; i++){
 
-            if (i == 6 || i == 8 || i == 12 || i == 20 || i == 24){
+            if (i == 6 || i == 8 || i == 12 || i == 20){
                 button[i] = new Square(i, "GFrog");
             }else if (i == 22){
                 button[i] = new Square(i, "RFrog");
@@ -52,27 +51,27 @@ public class Board implements ActionListener
 
     public void actionPerformed(ActionEvent e)
     {
+        int rCount = 0;
+        int gCount = 0;
 
-        for (int c = 0; c < 25; c++){
-            piece = button[c].getPiece();
+        for (int i = 0; i < 25; i++){
 
-            if(e.getSource() == button[c].getButton() && "GFrog".equals(button[c].getPiece())){
+            if(e.getSource() == button[i].getButton() && "GFrog".equals(button[i].getPiece())){
 
-                location = c;
-                button[c].getButton().setIcon(gFrog2);
-                selectButton = button[c];
-                System.out.println("kl");
+                location = i;
+                button[i].getButton().setIcon(gFrog2);
+                selectButton = button[i];
 
-            }else if (e.getSource() == button[c].getButton() && "RFrog".equals(button[c].getPiece())){
+            }else if (e.getSource() == button[i].getButton() && "RFrog".equals(button[i].getPiece())){
 
-                location = c;
-                button[c].getButton().setIcon(rFrog2);
-                selectButton = button[c];
+                location = i;
+                button[i].getButton().setIcon(rFrog2);
+                selectButton = button[i];
 
-            }else if (e.getSource() == button[c].getButton() && "Lilypad".equals(button[c].getPiece())){
+            }else if (e.getSource() == button[i].getButton() && "Lilypad".equals(button[i].getPiece())){
 
-                location2 = c;
-                selectButton2 = button[c];
+                location2 = i;
+                selectButton2 = button[i];
                 midpoint = ((location + location2)/2);
 
                 if ("GFrog".equals(button[midpoint].getPiece()) || "RFrog".equals(button[midpoint].getPiece())){
@@ -81,16 +80,34 @@ public class Board implements ActionListener
                     selectButton.moveTo(selectButton2);
 
                 }else{
-                    System.out.println("NOPE");
-                }
 
+                    Board.msgBox("INVALID MOVE!!!", "WARNING!!!");
+
+                }
             }
 
-        
-
+            if ("RFrog".equals(button[i].getPiece())){
+                rCount++;
+            }else if ("GFrog".equals(button[i].getPiece())){
+                gCount++;
+            }
         }
 
-        
+        if (gCount == 0 && rCount == 1){
+
+            Board.msgBox("YOU WIN!!!", "CONGRATULATIONS!!!");
+
+        }else if (rCount == 0){
+
+            Board.msgBox("YOU LOSE!!!", "LOSER!!!");
+            
+        }
+    }
+
+    public static void msgBox(String message, String title)
+    {
+
+        JOptionPane.showMessageDialog(null, message, title, JOptionPane.INFORMATION_MESSAGE);
 
     }
 }
